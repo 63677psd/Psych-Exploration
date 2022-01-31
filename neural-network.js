@@ -5,8 +5,6 @@ function Neural_Network(arr){
 }
 
 
-
-
 function setup(){
 	const canvas = createCanvas(windowWidth*0.75,500);
 	canvas.parent("sketch");
