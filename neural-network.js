@@ -1,3 +1,5 @@
+// me testing adding a comment
+
 function Neural_Network(arr){
 	this.layer_sizes = arr.slice();
 	this.weights = [];
