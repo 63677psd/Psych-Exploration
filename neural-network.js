@@ -1,4 +1,5 @@
 // me testing adding a comment
+// hello sydney
 
 function Neural_Network(arr){
 	this.layer_sizes = arr.slice();
