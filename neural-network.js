@@ -1,10 +1,32 @@
-// me testing adding a comment
-// hello sydney
+function matrixMultNaive(A,B){
+	
+}
 
-function Neural_Network(arr){
-	this.layer_sizes = arr.slice();
-	this.weights = [];
-	this.biases = [];
+function matrixMultGPU(A,B){
+	
+}
+
+function matrixMultMathJS(A,B){
+	
+}
+
+// if you figure out c++ things you could also implement one with that
+
+// time matrix*matrix on square matrix
+function timeMatrixMult(func, size, iter){
+	// performance.now() gives the time
+	// generate matrices
+	// loop through iter iterations
+	// 		multiply the matrices
+	// get the time again
+	
+	// test this and the next method with each of the multiplication methods
+	// there could be a different better one for matrices and vectors also depending on the size
+}
+
+// time matrix*vector with square matrix
+function timeVectorMult(func, size, iter){
+	
 }
 
 
