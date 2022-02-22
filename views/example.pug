@@ -1,0 +1,21 @@
+extends template.pug
+
+block required_scripts
+	- const required_scripts = ["intro-sketch.js"];
+
+block title
+	- const title = "Example"
+
+block current_page
+	- const current_page = "Page";
+
+block summary
+	p.
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rutrum eros in ultricies fringilla. Duis auctor dui laoreet magna aliquet semper. Vestibulum eget convallis magna. Quisque sollicitudin dui ex, a commodo ex malesuada sed. Aliquam mollis lorem tincidunt eleifend luctus. Suspendisse pulvinar commodo lorem ut condimentum. Duis dictum purus a tincidunt feugiat.
+		<br><br>
+		In hendrerit libero mauris, eget scelerisque diam malesuada id. Phasellus commodo tempus hendrerit. Nullam sodales, sapien non aliquet sagittis, dui sem sollicitudin elit, non posuere lectus dolor nec arcu. Vivamus dictum urna eget velit cursus porta. Sed fermentum ipsum a purus aliquet, non tempus tellus porta. Proin pharetra magna vel augue malesuada volutpat. Etiam euismod urna vel gravida egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et nunc lobortis, convallis lectus eu, vulputate nulla. In vel sapien posuere, sagittis odio nec, molestie tortor. Quisque non scelerisque nibh. Vivamus tincidunt augue blandit tellus semper, at dignissim nunc accumsan. Nullam convallis, sem nec efficitur mollis, metus risus ultricies enim, et bibendum eros diam ut nisl. Nam vitae ullamcorper tortor, dictum tempus ex. Phasellus in ultricies velit, sed facilisis lacus.
+
+block instructions
+	.col.fw-bold Click in the box below to create circles. Click "Drop" to make them fall.
+	.col-2
+		button.btn.btn-primary(onclick="fall()") Drop
