@@ -48,44 +48,8 @@ html
 							else
 								a.nav-link(href=link)= page
 
-		.container.mt-3
-			block summary
-				p Summary
-
-		.container-lg.border.p-3.mt-3
-			.row.pb-2
-				block instructions
-					.col.fw-bold Instructions
-			.row
-				#sketch.d-flex.justify-content-center
-			.row
-				a.link-dark(href="#", data-bs-toggle="modal", data-bs-target="#code-view") View Code
+		block content
 
 		.container-fluid.bg-primary.p-3.mt-3
 			span footer goes here
-
-		#code-view.modal
-			.modal-dialog.modal-xl
-				.modal-content
-					.modal-header
-						h4.modal-title Code
-						button.btn-close(type="button", data-bs-dismiss="modal")
-					.modal-body
-						.accordion
-							each s, index in required_scripts
-								.accordion-item
-									h2.accordion-header
-										button.accordion-button.collapsed(type="button", data-bs-toggle="collapse", data-bs-target=`#script${index}`)= s
-									.accordion-collapse.collapse(id=`script${index}`)
-										.accordion-body
-											pre
-												code(id=`code${index}`)
-								script.
-									fetch("/scripts/#{s}")
-										.then(response => response.text())
-										.then(text => $("#code#{index}").text(text))
-										.then(x => hljs.highlightElement($("#code#{index}")[0]));
-
-					.modal-footer
-						button.btn.btn-danger(type="button", data-bs-dismiss="modal") Close
 
