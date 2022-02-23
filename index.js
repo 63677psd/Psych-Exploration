@@ -2,18 +2,26 @@ const express = require("express");
 const pug = require("pug");
 
 const app = express();
-app.set('view engine', 'pug')
+app.set("view engine", "pug");
+app.locals.basedir = require("path").join(__dirname);
 
 const PORT = 8000;
 
 
-app.use("/scripts", express.static(__dirname + '/scripts'));
+app.use("/scripts", express.static(__dirname + "/scripts"));
 
 
-app.get('/', (req, res) => {
+const pages = ["example", "finn"];
+const pages_regex = pages.reduce((x,y)=>x+"|"+y);
 
-  res.render("example");
+app.get(`/:page(${pages_regex})`, (req, res) => {
+  res.render(req.params.page);
 
+});
+
+
+app.get('*', function(req, res){
+  res.status(404).send("Page not found");
 });
 
 

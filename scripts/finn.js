@@ -24,7 +24,7 @@ function draw(){
 				orb.vy += 1;
 			}
 			orb.y += orb.vy;
-			ellipse(orb.x, orb.y, orb.r);
+			text("Finn", orb.x, orb.y);
 		}
 	}
 

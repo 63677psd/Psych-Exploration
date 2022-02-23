@@ -1,0 +1,19 @@
+extends template.pug
+
+block required_scripts
+	- const required_scripts = ["finn.js"];
+
+block title
+	- const title = "Finn"
+
+block current_page
+	- const current_page = "Finn";
+
+block summary
+	p.
+		Finn
+
+block instructions
+	.col.fw-bold Click in the box below to create Finns. Click "Drop" to make them fall.
+	.col-2
+		button.btn.btn-primary(onclick="fall()") Drop
