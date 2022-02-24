@@ -7,19 +7,42 @@ app.locals.basedir = require("path").join(__dirname);
 
 const PORT = 8000;
 
-
+// serve scripts folder
 app.use("/scripts", express.static(__dirname + "/scripts"));
 
+// create navbar
+const navbar_info = {
+  Introduction: {href:"/intro"},
+  "First Steps": {
+      Algorithms:{href: "/algorithms"},
+      Heuristics:{href: "/heuristics"}
+  },
+  Learning: {
+      "Supervised Learning":{href: "/supervised"},
+      "Unsupervised Learning":{href: "/unsupervised"},
+      "Reinforcement Learning":{href: "/reinforcement"}
+  },
+  Finn: {href: "/finn"}
+};
 
-const pages = ["example", "finn"];
-const pages_regex = pages.reduce((x,y)=>x+"|"+y);
+// serve content pages
 
-app.get(`/:page(${pages_regex})`, (req, res) => {
-  res.render(req.params.page);
+// map paths to files in the views folder
+const pages = {
+  "/": "intro.pug",
+  "/intro": "intro.pug",
+  "/algorithms": "algorithms.pug",
+  "/heuristics": "heuristics.pug",
+  "/finn": "finn.pug"
+};
 
-});
+for (const page in pages){
+  app.get(page, (req, res) => {
+    res.render(pages[page], {navbar_info:navbar_info});
+  });
+}
 
-
+// 404 for everything else
 app.get('*', function(req, res){
   res.status(404).send("Page not found");
 });

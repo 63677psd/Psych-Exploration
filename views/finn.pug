@@ -1,13 +1,15 @@
 extends simulation-template
 
-block required_scripts
-	- const required_scripts = ["finn.js"];
-
 block title
 	- const title = "Finn"
 
-block current_page
+block required_scripts
+	- const required_scripts = ["finn.js"];
+
+block nav_info
 	- const current_page = "Finn";
+	- const prev_page = null;
+	- const next_page = null;
 
 block summary
 	p.

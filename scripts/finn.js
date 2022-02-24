@@ -49,7 +49,7 @@ function mouseClicked(){
 }
 
 function mouseIn(){
-	return !$("#code-view").hasClass("show") && (mouseX > 0) && (mouseX < width) && (mouseY > 0) && (mouseY < height);
+	return $("#code-view").attr("aria-hidden")=="true" && (mouseX > 0) && (mouseX < width) && (mouseY > 0) && (mouseY < height);
 }
 
 function fall(){

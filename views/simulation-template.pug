@@ -1,5 +1,11 @@
 extends template
 
+block load_scripts
+	block required_scripts
+		- const required_scripts = [];
+	each s in required_scripts
+		script(src=`/scripts/${s}`)
+
 block content
 	.container.mt-3
 		block summary
@@ -15,7 +21,7 @@ block content
 			a.link-dark(href="#", data-bs-toggle="modal", data-bs-target="#code-view") View Code
 
 
-	#code-view.modal
+	#code-view.modal.fade(aria-hidden="true")
 		.modal-dialog.modal-xl
 			.modal-content
 				.modal-header
