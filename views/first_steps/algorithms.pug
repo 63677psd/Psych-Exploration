@@ -1,19 +1,19 @@
-extends simulation-template
+extends /templates/simulation-template
 
 block title
-	- const title = "Heuristics"
+	- const title = "Algorithms"
 
 block required_scripts
 	- const required_scripts = [];
 
 block nav_info
 	- const current_page = "First Steps";
-	- const prev_page = {name: "Algorithms", link: "/algorithms"};;
-	- const next_page = null;
+	- const prev_page = {name: "Introduction", link: "/intro"};
+	- const next_page = {name: "Heuristics", link: "/heuristics"};
 
 block summary
 	p.
-		Heuristics moment
+		ALGORITHMS
 
 block instructions
 	.col.fw-bold Instructions

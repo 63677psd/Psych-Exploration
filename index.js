@@ -3,7 +3,7 @@ const pug = require("pug");
 
 const app = express();
 app.set("view engine", "pug");
-app.locals.basedir = require("path").join(__dirname);
+app.locals.basedir = require("path").join(__dirname, 'views');
 
 const PORT = 8000;
 
@@ -31,8 +31,8 @@ const navbar_info = {
 const pages = {
   "/": "intro.pug",
   "/intro": "intro.pug",
-  "/algorithms": "algorithms.pug",
-  "/heuristics": "heuristics.pug",
+  "/algorithms": "first_steps/algorithms.pug",
+  "/heuristics": "first_steps/heuristics.pug",
   "/finn": "finn.pug"
 };
 
