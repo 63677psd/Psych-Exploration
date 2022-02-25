@@ -4,7 +4,7 @@ block title
 	- const title = "Algorithms"
 
 block required_scripts
-	- const required_scripts = [];
+	- const required_scripts = ["01knapsack.js", "algorithms-sketch.js"];
 
 block nav_info
 	- const current_page = "First Steps";
@@ -16,6 +16,9 @@ block summary
 		ALGORITHMS
 
 block instructions
-	.col.fw-bold Instructions
-	.col-2
-		button.btn.btn-primary Button
+	.col.fw-bold Click the boxes to try the 0-1 knapsack problem yourself. Press "Solve" to run the algorithm and find a solution that maximizes the total value.
+	.col-1
+		button.btn.btn-primary(onclick="solve()") Solve
+	.col-1
+		button.btn.btn-warning.p-1(onclick="restart_sketch()")
+			i.bi.bi-arrow-repeat.h4
