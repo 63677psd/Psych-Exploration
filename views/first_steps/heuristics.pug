@@ -4,7 +4,7 @@ block title
 	- const title = "Heuristics"
 
 block required_scripts
-	- const required_scripts = [];
+	- const required_scripts = ["01knapsack-heuristic.js", "01knapsack.js", "heuristics-sketch.js"];
 
 block nav_info
 	- const current_page = "First Steps";
@@ -16,6 +16,9 @@ block summary
 		Heuristics moment
 
 block instructions
-	.col.fw-bold Instructions
-	.col-2
-		button.btn.btn-primary Button
+	.col.fw-bold This shows the solutions to the 0-1 knapsack problem found by the algorithm and the heuristic.  Click "Generate" to generate an example where the algorithm and heuristic give different results.
+	.col-1
+		button.btn.btn-primary(onclick="generate_diff()") Generate
+	.col-1
+		button.btn.btn-warning.p-1(onclick="restart_sketch()")
+			i.bi.bi-arrow-repeat.h4
