@@ -18,7 +18,7 @@ const navbar_info = {
       Heuristics:{href: "/heuristics"}
   },
   "Neural Networks": {
-    "TensorFlow Test": {href: "/tf-test"}
+    "Object Detection": {href: "/object-detection"}
   },
   Learning: {
       "Supervised Learning":{href: "/supervised"},
@@ -36,7 +36,7 @@ const pages = {
   "/intro": "intro.pug",
   "/algorithms": "first_steps/algorithms.pug",
   "/heuristics": "first_steps/heuristics.pug",
-  "/tf-test": "neural_networks/tf_test.pug",
+  "/object-detection": "neural_networks/object_detection.pug",
   "/finn": "finn.pug"
 };
 
