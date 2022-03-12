@@ -1,0 +1,26 @@
+extends /templates/simulation-template
+
+block title
+	- const title = "TensorFlow Test"
+
+block required_scripts
+	- const required_scripts = ["tf_test.js"];
+	script(src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs")
+	script(src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd")
+
+block nav_info
+	- const current_page = "Neural Networks";
+	- const prev_page = {name: "Heuristics", link: "/heuristics"};
+	- const next_page = null;
+
+block summary
+	p.
+		TF test
+
+block instructions
+	.col.fw-bold Instructions
+	.col-1
+		button.btn.btn-primary(onclick="") Btn
+	.col-1
+		button.btn.btn-warning.p-1(onclick="")
+			i.bi.bi-arrow-repeat.h4
