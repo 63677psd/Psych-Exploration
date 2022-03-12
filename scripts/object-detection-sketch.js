@@ -14,12 +14,14 @@ function draw(){
 	const offset_x = (width - video.width)/2
 	const offset_y = (height - video.height)/2
 
-	cocoSsd.load().then(model => {
-		const img = document.getElementById("video");
-		model.detect(img).then(preds => {
-		  predictions = preds;
+	if (frameCount%100 == 0){
+		cocoSsd.load().then(model => {
+			const img = document.getElementById("video");
+			model.detect(img).then(preds => {
+			  predictions = preds;
+			});
 		});
-	});
+	}
 
 	background(255);
 
