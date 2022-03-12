@@ -1,25 +1,26 @@
+let model;
 let video;
 let predictions = [];
 
-function setup(){
+async function setup(){
 	const canvas = createCanvas(windowWidth*0.75,500);
 	canvas.parent("sketch");
 
 	video = createCapture(VIDEO);
 	video.id("video");
 	video.hide();
+
+	model = await cocoSsd.load();
 }
 
-function draw(){
+async function draw(){
 	const offset_x = (width - video.width)/2
 	const offset_y = (height - video.height)/2
 
-	if (frameCount%100 == 0){
-		cocoSsd.load().then(model => {
-			const img = document.getElementById("video");
-			model.detect(img).then(preds => {
-			  predictions = preds;
-			});
+	if (frameCount%1 == 0){
+		const img = document.getElementById("video");
+		model.detect(img).then(preds => {
+		  predictions = preds;
 		});
 	}
 
