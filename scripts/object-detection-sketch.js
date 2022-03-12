@@ -2,6 +2,16 @@ let model;
 let video;
 let predictions = [];
 
+let showing_webcam = true;
+
+function get_image(){
+	if (showing_webcam){
+		return document.getElementById("video");
+	} else {
+		return document.getElementById("img");
+	}
+}
+
 async function setup(){
 	const canvas = createCanvas(windowWidth*0.75,500);
 	canvas.parent("sketch");
@@ -17,12 +27,12 @@ async function draw(){
 	const offset_x = (width - video.width)/2
 	const offset_y = (height - video.height)/2
 
-	if (frameCount%1 == 0){
-		const img = document.getElementById("video");
-		model.detect(img).then(preds => {
-		  predictions = preds;
-		});
-	}
+	model.detect(get_image()).then(preds => {
+	  predictions = preds;
+	});
+
+	scale(-1, 1);
+	translate(-width, 0);
 
 	background(255);
 
