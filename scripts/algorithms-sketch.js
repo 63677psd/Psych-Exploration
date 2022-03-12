@@ -62,8 +62,6 @@ function restart_sketch(){
 	total_value = 0;
 	total_weight = 0;
 	items_in_knapsack = 0;
-
-	generate_coords();
 }
 
 function setup(){
