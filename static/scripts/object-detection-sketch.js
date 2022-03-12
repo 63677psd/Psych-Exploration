@@ -8,11 +8,14 @@ let showing_webcam = false;
 let webcam_loaded = false;
 
 const image_links = {
+	Brady: "/static/assets/brady.jpg",
 	City: "/static/assets/city.jpg",
-	Family: "/static/assets/family.jpg"
+	Family: "/static/assets/family.jpg",
+	Office: "/static/assets/office.jpg",
+	People: "/static/assets/people.png"
 };
 let images = {};
-let showing_image = "City";
+let showing_image = "Brady";
 
 function get_image(){
 	if (webcam_loaded){
@@ -37,12 +40,15 @@ function create_image(name, url){
 }
 
 async function load_model(){
+	$("#load-model").text("Loading...");
+	$("#load-model").prop("disabled", true);
 	model = await cocoSsd.load();
 	model_loaded = true;
 	$("#load-model").remove();
 	$("#input-select").removeClass("invisible");
 
 	$("#input-select").change(()=>{
+		predictions = [];
 		if (showing_webcam){
 			video.remove();
 		}
@@ -65,7 +71,7 @@ function setup(){
 		create_image(name, image_links[name]);
 	}
 
-	frameRate(5);
+	frameRate(30);
 	textAlign(CENTER, CENTER);
 }
 
@@ -73,19 +79,21 @@ function draw(){
 	const offset_x = showing_webcam ? (width - video.width)/2 : (width - images[showing_image].width)/2;
 	const offset_y = showing_webcam ? (height - video.height)/2 : (height - images[showing_image].height)/2;
 
-	if (model_loaded){
-		if (showing_webcam){
-			if (webcam_loaded){
-				model.detect(document.getElementById("video")).then(preds => {
+	if (frameCount % 6 == 0){
+		if (model_loaded){
+			if (showing_webcam){
+				if (webcam_loaded){
+					model.detect(document.getElementById("video")).then(preds => {
+						predictions = preds;
+					});
+				} else {
+					predictions = [];
+				}
+			} else {
+				model.detect(document.getElementById("img-"+showing_image)).then(preds => {
 					predictions = preds;
 				});
-			} else {
-				predictions = [];
 			}
-		} else {
-			model.detect(document.getElementById("img-"+showing_image)).then(preds => {
-				predictions = preds;
-			});
 		}
 	}
 
