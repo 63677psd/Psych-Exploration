@@ -54,7 +54,7 @@ async function draw(){
 		noStroke();
 		textSize(30);
 		textAlign(CENTER, CENTER);
-		text(`${p.class}`, width - (box[0] + box[2]/2 + offset_x), box[1]+15+offset_y);
+		text(`${p.class}`, width - (box[0] + box[2]/2 + offset_x), box[1]-20+offset_y);
 	}
 }
 
