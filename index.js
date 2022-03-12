@@ -17,6 +17,9 @@ const navbar_info = {
       Algorithms:{href: "/algorithms"},
       Heuristics:{href: "/heuristics"}
   },
+  "Neural Networks": {
+    "TensorFlow Test": {href: "/tf-test"}
+  },
   Learning: {
       "Supervised Learning":{href: "/supervised"},
       "Unsupervised Learning":{href: "/unsupervised"},
@@ -33,6 +36,7 @@ const pages = {
   "/intro": "intro.pug",
   "/algorithms": "first_steps/algorithms.pug",
   "/heuristics": "first_steps/heuristics.pug",
+  "/tf-test": "neural_networks/tf_test.pug",
   "/finn": "finn.pug"
 };
 
