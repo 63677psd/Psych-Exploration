@@ -21,6 +21,8 @@ async function setup(){
 	video.hide();
 
 	model = await cocoSsd.load();
+
+	frameRate(5);
 }
 
 async function draw(){
@@ -31,12 +33,13 @@ async function draw(){
 	  predictions = preds;
 	});
 
-	scale(-1, 1);
-	translate(-width, 0);
-
 	background(255);
 
+	push();
+	scale(-1, 1);
+	translate(-width, 0);
 	image(video, offset_x, offset_y);
+	pop();
 
 	for (const p of predictions){
 		const box = p.bbox;
@@ -45,13 +48,13 @@ async function draw(){
 		noFill();
 		stroke(c);
 		strokeWeight(5);
-		rect(box[0] + offset_x, box[1] + offset_y, box[2], box[3]);
+		rect(width - (box[0] + offset_x) - box[2], box[1] + offset_y, box[2], box[3]);
 
 		fill(c);
 		noStroke();
 		textSize(30);
 		textAlign(CENTER, CENTER);
-		text(`${p.class}`, box[0] + box[2]/2 + offset_x, box[1]+15+offset_y);
+		text(`${p.class}`, width - (box[0] + box[2]/2 + offset_x), box[1]+15+offset_y);
 	}
 }
 
