@@ -19,8 +19,11 @@ block summary
 
 block instructions
 	.col.fw-bold Instructions
-	.col-1
-		button.btn.btn-primary(onclick="") Btn
-	.col-1
-		button.btn.btn-warning.p-1(onclick="")
-			i.bi.bi-arrow-repeat.h4
+	.col-2
+		.btn-toolbar
+			button.btn.btn-primary#load-model(onclick="load_model()") Load
+			select.form-select.invisible#input-select(style="width:auto;display:inline-block")
+				option Webcam
+				option(selected) City
+				option Family
+				option image 3

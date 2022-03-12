@@ -8,7 +8,7 @@ app.locals.basedir = require("path").join(__dirname, 'views');
 const PORT = 8000;
 
 // serve scripts folder
-app.use("/scripts", express.static(__dirname + "/scripts"));
+app.use("/static", express.static(__dirname + "/static"));
 
 // create navbar
 const navbar_info = {

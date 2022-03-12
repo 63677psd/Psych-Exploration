@@ -4,7 +4,7 @@ block load_scripts
 	block required_scripts
 		- const required_scripts = [];
 	each s in required_scripts
-		script(src=`/scripts/${s}`)
+		script(src=`/static/scripts/${s}`)
 
 block content
 	.container.mt-3
@@ -38,7 +38,7 @@ block content
 										pre
 											code(id=`code${index}`)
 							script.
-								fetch("/scripts/#{s}")
+								fetch("/static/scripts/#{s}")
 									.then(response => response.text())
 									.then(text => $("#code#{index}").text(text))
 									.then(x => hljs.highlightElement($("#code#{index}")[0]));
