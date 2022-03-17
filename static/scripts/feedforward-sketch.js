@@ -44,14 +44,23 @@ function create_model(){
 	model.add(tf.layers.dense({units: 6, inputShape: [2], activation:"sigmoid"}));
 	model.add(tf.layers.dense({units: 6, activation:"sigmoid"}));
 	model.add(tf.layers.dense({units: 1, activation:"sigmoid"}));
-	model.compile({ optimizer: tf.train.adam(0.1), loss: 'meanSquaredError'});
+	model.compile({ optimizer: tf.train.adam(0.03), loss: 'meanSquaredError'});
 
 }
 
 function train_model(n=100){
 	let X = [...new Array(n)].map(()=>[random(), random()]);
-	let Y = X.map(x=>x[1] < abs(sin(5*x[0]))?[1]:[0]);
-	model.fit(tf.tensor2d(X), tf.tensor2d(Y), {epochs: 5, batchSize:32}).then(()=>{weights = extract_weights(model)}).catch(()=>{});
+	let Y = X.map(x=>pow(x[0]-0.5,2) + pow(x[1]-0.5,2) < 0.25*0.25?[1]:[0]);
+	model.fit(tf.tensor2d(X), tf.tensor2d(Y), {epochs: 5, batchSize:32}).then((info)=>{
+		weights = extract_weights(model);
+		if (show){
+			background(200);
+			draw_network(weights, [mouseX/width, mouseY/height], width, height, 50, 10);
+		}
+		console.log(info.history.loss[4]);
+		train_model();
+
+	}).catch(()=>{});
 }
 
 function setup(){
@@ -102,7 +111,7 @@ function draw_network(weights, inputs, _width, _height, node_size=50, arrowhead_
 					stroke(100,0,0);
 				}
 				strokeWeight(abs(bias));
-				arrow(input_x, input_y - node_size, input_x, input_y - node_size/2, arrowhead_size);
+				arrow(input_x, input_y - node_size/2 - 5, input_x, input_y - node_size/2, arrowhead_size);
 			}
 
 
@@ -137,17 +146,12 @@ function draw_network(weights, inputs, _width, _height, node_size=50, arrowhead_
 			stroke(100,0,0);
 		}
 		strokeWeight(abs(bias));
-		arrow(output_x, output_y - node_size, output_x, output_y - node_size/2, arrowhead_size);
+		arrow(output_x, output_y - node_size/2 - 5, output_x, output_y - node_size/2, arrowhead_size);
 	}
 }
-
 show = true;
 function draw(){
-	if (show){
-		background(200);
-		draw_network(weights, [mouseX/width, mouseY/height], width, height, 50, 10);
-		train_model();
-	} else {
+	if (!show){
 		for (let i=0; i<100; i++){
 			noStroke();
 			let input = [random(), random()];
@@ -156,16 +160,14 @@ function draw(){
 			ellipse(input[0]*width, input[1]*height, 5, 5);
 		}
 	}
-
-
-}
-
-function mouseIn(){
-	return $("#code-view").attr("aria-hidden")=="true" && (mouseX > 0) && (mouseX < width) && (mouseY > 0) && (mouseY < height);
 }
 
 function mousePressed(){
 	show = !show;
+}
+
+function mouseIn(){
+	return $("#code-view").attr("aria-hidden")=="true" && (mouseX > 0) && (mouseX < width) && (mouseY > 0) && (mouseY < height);
 }
 
 
