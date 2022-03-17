@@ -1,0 +1,22 @@
+extends /templates/simulation-template
+
+block title
+	- const title = "Perceptron"
+
+block required_scripts
+	- const required_scripts = ["perceptron-sketch.js"];
+
+block nav_info
+	- const current_page = "Neural Networks";
+	- const prev_page = {name: "Heuristics", link: "/heuristics"};
+	- const next_page = {name: "Feedforward NN", link: "/feedforward"};
+
+block summary
+	p.
+		perceptron moment
+
+block instructions
+	.col.fw-bold Based?
+	.col-1
+		button.btn.btn-warning.p-1(onclick="restart_sketch()")
+			i.bi.bi-arrow-repeat.h4

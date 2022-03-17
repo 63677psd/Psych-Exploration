@@ -18,6 +18,8 @@ const navbar_info = {
       Heuristics:{href: "/heuristics"}
   },
   "Neural Networks": {
+    Perceptron: {href: "/perceptron"},
+    "Feedforward NN": {href: "/feedforward"},
     "Object Detection": {href: "/object-detection"}
   },
   Learning: {
@@ -36,6 +38,8 @@ const pages = {
   "/intro": "intro.pug",
   "/algorithms": "first_steps/algorithms.pug",
   "/heuristics": "first_steps/heuristics.pug",
+  "/perceptron": "neural_networks/perceptron.pug",
+  "/feedforward": "neural_networks/feedforward.pug",
   "/object-detection": "neural_networks/object_detection.pug",
   "/finn": "finn.pug"
 };
