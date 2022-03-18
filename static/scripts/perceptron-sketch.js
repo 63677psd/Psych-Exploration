@@ -22,6 +22,15 @@ function restart_sketch(){
 	offset += 100;
 }
 
+function arrow(x1, y1, x2, y2, head_length = 30, head_angle = PI/4){
+	const dx = x2-x1;
+	const dy = y2-y1;
+	const angle = atan2(dy, dx);
+	line(x1, y1, x2, y2);
+	line(x2, y2, x2 + head_length*cos(angle + PI + head_angle/2), y2 + head_length*sin(angle + PI + head_angle/2));
+	line(x2, y2, x2 + head_length*cos(angle + PI - head_angle/2), y2 + head_length*sin(angle + PI - head_angle/2));
+}
+
 function setup(){
 	const canvas = createCanvas(windowWidth*0.75,500);
 	canvas.parent("sketch");
@@ -32,17 +41,12 @@ function setup(){
 	restart_sketch();
 }
 
-function arrow(x1, y1, x2, y2, head_length = 30, head_angle = PI/4){
-	const dx = x2-x1;
-	const dy = y2-y1;
-	const angle = atan2(dy, dx);
-	line(x1, y1, x2, y2);
-	line(x2, y2, x2 + head_length*cos(angle + PI + head_angle/2), y2 + head_length*sin(angle + PI + head_angle/2));
-	line(x2, y2, x2 + head_length*cos(angle + PI - head_angle/2), y2 + head_length*sin(angle + PI - head_angle/2));
-}
-
 function draw(){
-	inputs = inputs.map((val, ind)=>extremize(noise(mouseX/100 + 10000*(ind + offset), mouseY/100)));
+	if (mouseIn()){
+		inputs = inputs.map((val, ind)=>extremize(noise(mouseX/100 + 10000*(ind + offset), mouseY/100)));
+	} else {
+		inputs = [1,1,1,1];
+	}
 
 	let perceptron_val = inputs.map((val, ind)=>val*weights[ind]).reduce((x,y)=>x+y, bias);
 	perceptron_val = activation(perceptron_val);

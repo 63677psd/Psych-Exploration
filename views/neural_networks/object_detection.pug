@@ -15,7 +15,7 @@ block nav_info
 
 block summary
 	p.
-		TF test. Instead of the button, put a dropdown menu that has different images and a webcam as one of the options. Have another button to start the simulation because it slows down the whole browser when you do.
+		TF test. this shows an example of a cool thing that can be done by neural networks. You could describe how (or at least what) is a SSD model (single-shot detector). Talk about how more data is good for more advanced neural networks, also how better computers is good. The models are also getting better. There are free pre-trained models that can do things such as object detection (see simulation), language processing (put link to this simulation if you end up doing it), etc.
 	a(href="https://github.com/tensorflow/tfjs-models") https://github.com/tensorflow/tfjs-models
 
 block instructions
@@ -23,7 +23,7 @@ block instructions
 	.col-2
 		.btn-toolbar
 			button.btn.btn-primary#load-model(onclick="load_model()") Load
-			select.form-select.invisible#input-select(style="width:auto;display:inline-block")
+			select.form-select#input-select(style="width:auto;display:none")
 				option Webcam
 				option(selected) Brady
 				option City

@@ -45,7 +45,7 @@ async function load_model(){
 	model = await cocoSsd.load();
 	model_loaded = true;
 	$("#load-model").remove();
-	$("#input-select").removeClass("invisible");
+	$("#input-select").css("display", "block");
 
 	$("#input-select").change(()=>{
 		predictions = [];

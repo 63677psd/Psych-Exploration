@@ -17,16 +17,20 @@ const navbar_info = {
       Algorithms:{href: "/algorithms"},
       Heuristics:{href: "/heuristics"}
   },
-  "Neural Networks": {
-    Perceptron: {href: "/perceptron"},
-    "Feedforward NN": {href: "/feedforward"},
-    "Object Detection": {href: "/object-detection"}
-  },
   Learning: {
       "Supervised Learning":{href: "/supervised"},
       "Unsupervised Learning":{href: "/unsupervised"},
       "Reinforcement Learning":{href: "/reinforcement"}
   },
+  "Neural Networks": {
+    Perceptron: {href: "/perceptron"},
+    "Feedforward NN": {href: "/feedforward"},
+    "Object Detection": {href: "/object-detection"}
+  },
+  "Genetic Algorithms": {href: "/genetic"},
+  "Language": {href: "/language"},
+  "Creativity": {href: "/creativity"},
+  "Conclusion": {href: "/conclusion"},
   Finn: {href: "/finn"}
 };
 

@@ -4,7 +4,7 @@ block title
 	- const title = "Feedforward Neural Networks"
 
 block required_scripts
-	- const required_scripts = ["feedforward-sketch.js"];
+	- const required_scripts = ["draw-nn.js", "feedforward-sketch.js"];
 	script(src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs")
 
 block nav_info
@@ -14,10 +14,11 @@ block nav_info
 
 block summary
 	p.
-		stringing perceptrons together in one direction, this is not done yet, add six hours to psych exploration on march 16th doing this and the perceptron.
+		stringing perceptrons together in one direction, this is the simplest kind of artificial neural network but is still very robust. the activation functions inforporate nonlinearity, which allows these networks to find complex patterns within data. explain how each layer feeds into the next, explain backpropogation and hidden nodes, describe simulation. should another simulation go after this? cnn maybe, you could do mnist pretty quickly with tensorflow? another cnn simulation could also be good for talking about image processing and feature detection? also in this page make sure to talk about strengthening neural connections during backpropogation, which less important ones are scaled down (pruning)
 
 block instructions
 	.col.fw-bold double based?
 	.col-1
-		button.btn.btn-warning.p-1(onclick="restart_sketch()")
+		button.btn.btn-primary#start(onclick="start()") Start
+		button.btn.btn-warning.p-1#restart(onclick="restart_sketch()" style="display:none")
 			i.bi.bi-arrow-repeat.h4
