@@ -25,6 +25,7 @@ const navbar_info = {
   "Neural Networks": {
     Perceptron: {href: "/perceptron"},
     "Feedforward NN": {href: "/feedforward"},
+    "Convolutional NN": {href: "/convolutional"},
     "Object Detection": {href: "/object-detection"}
   },
   "Genetic Algorithms": {href: "/genetic"},
@@ -44,6 +45,7 @@ const pages = {
   "/heuristics": "first_steps/heuristics.pug",
   "/perceptron": "neural_networks/perceptron.pug",
   "/feedforward": "neural_networks/feedforward.pug",
+  "/convolutional": "neural_networks/convolutional.pug",
   "/object-detection": "neural_networks/object_detection.pug",
   "/finn": "finn.pug"
 };
