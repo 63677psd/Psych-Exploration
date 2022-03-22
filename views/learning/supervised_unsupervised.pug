@@ -1,0 +1,24 @@
+extends /templates/simulation-template
+
+block title
+	- const title = "Supervised and Unsupervised Learning"
+
+block required_scripts
+	- const required_scripts = ["k-means.js", "supervised-unsupervised-sketch.js"];
+
+block nav_info
+	- const current_page = "Learning";
+	- const prev_page = {name: "Heuristics", link: "/heuristics"};
+	- const next_page = {name: "idk", link: "/idk"};
+
+block summary
+	p.
+		human learn from experience. machines can simulate this. one way this can be done is by finding patterns in data to come to a conclusion.  sometimes the data has known "labels" and sometimes it doesnt. This is the difference between supervised and unsupervised. Classification vs. regression. Describe simulation, unsupervised algorithm called k-means clustering that is used to detect clusters in a set of data.  Give and example, with a picture maybe? maybe link to neural network section for more advanced learning algorithms. k-means clustering also works in higher dimensions but the easiest way to visualize it is in two dimensions.
+
+block instructions
+	.col.fw-bold k means
+	.col-1
+		button.btn.btn-primary(onclick="") asdf
+	.col-1
+		button.btn.btn-warning.p-1(onclick="restart_sketch()")
+			i.bi.bi-arrow-repeat.h4

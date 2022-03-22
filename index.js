@@ -18,8 +18,7 @@ const navbar_info = {
       Heuristics:{href: "/heuristics"}
   },
   Learning: {
-      "Supervised Learning":{href: "/supervised"},
-      "Unsupervised Learning":{href: "/unsupervised"},
+      "Supervised vs. Unsupervised":{href: "/supervised-unsupervised"},
       "Reinforcement Learning":{href: "/reinforcement"}
   },
   "Neural Networks": {
@@ -43,6 +42,7 @@ const pages = {
   "/intro": "intro.pug",
   "/algorithms": "first_steps/algorithms.pug",
   "/heuristics": "first_steps/heuristics.pug",
+  "/supervised-unsupervised": "learning/supervised_unsupervised.pug",
   "/perceptron": "neural_networks/perceptron.pug",
   "/feedforward": "neural_networks/feedforward.pug",
   "/convolutional": "neural_networks/convolutional.pug",
