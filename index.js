@@ -43,6 +43,7 @@ const pages = {
   "/algorithms": "first_steps/algorithms.pug",
   "/heuristics": "first_steps/heuristics.pug",
   "/supervised-unsupervised": "learning/supervised_unsupervised.pug",
+  "/reinforcement": "learning/reinforcement.pug",
   "/perceptron": "neural_networks/perceptron.pug",
   "/feedforward": "neural_networks/feedforward.pug",
   "/convolutional": "neural_networks/convolutional.pug",

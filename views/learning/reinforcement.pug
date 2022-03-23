@@ -1,0 +1,24 @@
+extends /templates/simulation-template
+
+block title
+	- const title = "Reinforcement Learning"
+
+block required_scripts
+	- const required_scripts = ["reinforcement-game.js", "reinforcement-sketch.js"];
+
+block nav_info
+	- const current_page = "Learning";
+	- const prev_page = {name: "Learning", link: "/supervised-unsupervised"};
+	- const next_page = {name: "Perceptron", link: "/perceptron"};
+
+block summary
+	p.
+		when humans learn to do a task, we often use trial and error. computers can do this too, using a method known as reinforcement learning. explore environment and develop expected values along the way. eventually this will be able to construct an entire path to mark the best moves.
+
+block instructions
+	.col.fw-bold what to do
+	.col-1
+		button.btn.btn-primary#train-test(onclick="switch_mode()") Train
+	.col-1
+		button.btn.btn-warning.p-1(onclick="restart_sketch()")
+			i.bi.bi-arrow-repeat.h4
