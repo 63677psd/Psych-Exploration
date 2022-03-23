@@ -17,8 +17,10 @@ block summary
 
 block instructions
 	.col.fw-bold k means
-	.col-1
-		button.btn.btn-primary(onclick="") asdf
-	.col-1
-		button.btn.btn-warning.p-1(onclick="restart_sketch()")
-			i.bi.bi-arrow-repeat.h4
+	.col-4
+		.btn-toolbar
+			button.btn.btn-primary.mx-2(onclick="find_clusters()") Find Clusters
+			select.form-select.mx-2#data-select(style="width:auto")
+				option(selected) Two Clusters
+				option Three Clusters
+				option Seven Clusters
