@@ -29,7 +29,6 @@ const navbar_info = {
   },
   "Genetic Algorithms": {href: "/genetic"},
   "Language": {href: "/language"},
-  "Creativity": {href: "/creativity"},
   "Conclusion": {href: "/conclusion"},
   Finn: {href: "/finn"}
 };
@@ -49,6 +48,8 @@ const pages = {
   "/convolutional": "neural_networks/convolutional.pug",
   "/object-detection": "neural_networks/object_detection.pug",
   "/genetic": "genetic.pug",
+  "/language": "language.pug",
+  "/conclusion": "conclusion.pug",
   "/finn": "finn.pug"
 };
 

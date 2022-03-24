@@ -1,0 +1,24 @@
+extends /templates/simulation-template
+
+block title
+	- const title = "Natural Language Processing"
+
+block required_scripts
+	- const required_scripts = ["language-sketch.js"];
+	script(src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs")
+	script(src="https://cdn.jsdelivr.net/npm/@tensorflow-models/universal-sentence-encoder")
+
+
+block nav_info
+	- const current_page = "Language";
+	- const prev_page = {name: "Genetic Algorithms", link: "/genetic"};;
+	- const next_page = {name: "Conclusion", link: "/conclusion"};
+
+block summary
+	p.
+		One very important use for artificial intelligence in the modern world is understanding human language. This is used in Siri, Alexa, etc. Google translate, sentiment analysis, moderation. customer service chatbots.  The simulation uses a model called the Universal Sentence Encoder, which maps a sentence of any length to a 512 dimensional vector.  This is done so sentences with similar meaning tend to be close to each other in 512-dimensional space.  Given any two sentences, their similarity can be found by taking their dot product, which is close to 1 when the sentences are similar.
+
+block instructions
+	.col.fw-bold what to do
+	.col-2
+		button.btn.btn-primary#load-model(onclick="load_model()") Load

@@ -28,14 +28,12 @@ function Maze(){
 	this._traverse(0,0);
 
 	// remove random walls to create possible loops
-	for (let i=0; i<this.size*this.size/9; i++){
-		const row = floor(random()*(this.size-2)) + 1;
-		const col = floor(random()*(this.size-2)) + 1;
-		const dir = Object.keys(DIR_LOOKUP)[floor(random()*4)];
-		const d = DIR_LOOKUP[dir];
-		this.cells[row][col][dir] = false;
-		this.cells[row + d.dr][col + d.dc][PAIRS[dir]] = false;
-	}
+	let row = 2;
+	let col = 2;
+	let dir = "S";
+	let d = DIR_LOOKUP[dir];
+	this.cells[row][col][dir] = false;
+	this.cells[row + d.dr][col + d.dc][PAIRS[dir]] = false;
 
 	
 	// create 2d array of empty 1d arrays
