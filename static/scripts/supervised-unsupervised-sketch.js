@@ -100,7 +100,3 @@ function mouseIn(){
 function windowResized(){
 	resizeCanvas(windowWidth*0.75, 500);
 }
-
-function wait_promise(ms){
-	return new Promise((res, rej)=>setTimeout(res, ms));
-}

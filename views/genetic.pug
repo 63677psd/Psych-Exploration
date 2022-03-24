@@ -1,0 +1,24 @@
+extends /templates/simulation-template
+
+block title
+	- const title = "Genetic Algorithm"
+
+block required_scripts
+	- const required_scripts = ["maze.js", "genetic-algorithm.js", "genetic-sketch.js"];
+
+block nav_info
+	- const current_page = "Genetic Algorithms";
+	- const prev_page = {name:"Object Detection", link: "/object-detection"};
+	- const next_page = {name: "idk", link: "/"};
+
+block summary
+	p.
+		living things evolve behaviors and traits that make them live longer and reproduce more often. This simple idea allows for incredibly complex structures. Humans and our amazing intelligence evolved from single-celled organisms over millions of years.  We can simulate evolution and natural selection through a genetic algorithm.  This uses the same ideas to evolve complex behavior in computers.  We encode the behavior in "dna." depending on how the individual performs a certain task, they are more likely to be selected by the program to pass this dna onto the next generation. Over many generations, the population performs better and better overall.
+
+block instructions
+	.col.fw-bold what to do
+	.col-1
+		button.btn.btn-primary(onclick="") Evolve
+	.col-1
+		button.btn.btn-warning.p-1(onclick="restart_sketch()")
+			i.bi.bi-arrow-repeat.h4

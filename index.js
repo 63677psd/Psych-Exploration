@@ -48,6 +48,7 @@ const pages = {
   "/feedforward": "neural_networks/feedforward.pug",
   "/convolutional": "neural_networks/convolutional.pug",
   "/object-detection": "neural_networks/object_detection.pug",
+  "/genetic": "genetic.pug",
   "/finn": "finn.pug"
 };
 
