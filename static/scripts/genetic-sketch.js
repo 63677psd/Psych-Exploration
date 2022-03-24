@@ -29,7 +29,11 @@ function setup(){
 	canvas.parent("sketch");
 
 	frameRate(30);
-	textSize(30);
+
+	textAlign(LEFT, TOP);
+	textSize(20);
+	const w = textWidth("Generation: 99999");
+	textSize(floor(20/w*(width-height-50)/2));
 
 	restart_sketch();
 }
@@ -39,7 +43,7 @@ function draw(){
 
 	fill(0);
 	noStroke();
-	text(`Generation: ${population.generation}`, 50, 50);
+	text(`Generation: ${population.generation}`, 25, 50);
 
 	translate((width-height)/2,0.1*height/2);
 	for (const individual of population.population){

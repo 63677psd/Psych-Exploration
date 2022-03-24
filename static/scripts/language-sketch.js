@@ -13,10 +13,12 @@ async function load_model(){
 
 async function get_similarity(){
 	$("#similarity").text("");
+	$("#compare").prop("disabled", true).text("Calculating...");
 	const embeddings = await model.embed([$("#sentence-1").val(), $("#sentence-2").val()]);
 	const dot = tf.dot(embeddings,embeddings.transpose()).dataSync()[1];
 
 	$("#similarity").text(`Similarity: ${Math.round(dot*100)/100}`);
+	$("#compare").prop("disabled", false).text("Compare");
 }
 
 $(()=>{
@@ -59,8 +61,3 @@ $(()=>{
 		get_similarity();
 	});
 });
-
-/*
-		
-		.append($('<input type="text" class="form-control" placeholder="Sentence 1">'))
-		*/
