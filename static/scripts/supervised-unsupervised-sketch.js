@@ -6,6 +6,8 @@ let finding_start;
 
 let _seven_cluster_centers;
 
+let prev_size;
+
 const data_info = {
 	"Two Clusters": {
 		clusters: 2,
@@ -46,6 +48,8 @@ function get_hue(label){
 function setup(){
 	const canvas = createCanvas(windowWidth*0.75,500);
 	canvas.parent("sketch");
+
+	prev_size = windowWidth*0.75;
 
 	randomSeed(7);
 	_seven_cluster_centers = new Array(7).fill().map(()=>{return {x:random()*width/2+width/4, y:random()*height/2+height/4}});
@@ -99,4 +103,8 @@ function mouseIn(){
 
 function windowResized(){
 	resizeCanvas(windowWidth*0.75, 500);
+	if (abs(prev_size - windowWidth*0.75) > 50){
+		prev_size = windowWidth*0.75;
+		$("#data-select").change();
+	}
 }

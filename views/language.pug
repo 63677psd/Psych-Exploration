@@ -19,6 +19,7 @@ block summary
 		One very important use for artificial intelligence in the modern world is understanding human language. This is used in Siri, Alexa, etc. Google translate, sentiment analysis, moderation. customer service chatbots.  The simulation uses a model called the Universal Sentence Encoder, which maps a sentence of any length to a 512 dimensional vector.  This is done so sentences with similar meaning tend to be close to each other in 512-dimensional space.  Given any two sentences, their similarity can be found by taking their dot product, which is close to 1 when the sentences are similar.
 
 block instructions
-	.col.fw-bold what to do
-	.col-2
-		button.btn.btn-primary#load-model(onclick="load_model()") Load
+	.col.fw-bold Click “Load” to load TensorFlow’s pre-trained model (this may take a while).  Afterwards, click on the sentences to edit them and click “Compare” to calculate the similarity between the sentences.
+	.col-3.d-flex.justify-content-center
+		.btn-toolbar
+			button.btn.btn-primary#load-model(onclick="load_model()") Load

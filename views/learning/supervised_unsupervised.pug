@@ -16,11 +16,11 @@ block summary
 		human learn from experience. machines can simulate this. one way this can be done is by finding patterns in data to come to a conclusion.  sometimes the data has known "labels" and sometimes it doesnt. This is the difference between supervised and unsupervised. Classification vs. regression. Describe simulation, unsupervised algorithm called k-means clustering that is used to detect clusters in a set of data.  Give and example, with a picture maybe? maybe link to neural network section for more advanced learning algorithms. k-means clustering also works in higher dimensions but the easiest way to visualize it is in two dimensions.
 
 block instructions
-	.col.fw-bold k means
+	.col.fw-bold Click “Find Clusters” to run \(k\)-means clustering on the points shown in the simulation.  Points are colored according to their calculated clusters with a square in the center showing the center (or mean) of each cluster. The dropdown menu can be used to generate a different set of data.
 	.col-4
 		.btn-toolbar
-			button.btn.btn-primary.mx-2(onclick="find_clusters()") Find Clusters
-			select.form-select.mx-2#data-select(style="width:auto")
+			button.btn.btn-primary.m-2(onclick="find_clusters()") Find Clusters
+			select.form-select.m-2#data-select(style="width:auto")
 				option(selected) Two Clusters
 				option Three Clusters
 				option Seven Clusters

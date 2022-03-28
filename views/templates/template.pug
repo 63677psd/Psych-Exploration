@@ -19,9 +19,13 @@ html
 		style(type="text/css").
 			html {
 				height: 100%;
+				overflow-x: hidden;
 			}
 			.bg-color {
 				background: #7CB9E8;
+			}
+			.btn-toolbar {
+				height: 20px;
 			}
 
 
@@ -31,51 +35,60 @@ html
 		link(href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css", rel="stylesheet")
 		script(src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js")
 
+		script(src="https://polyfill.io/v3/polyfill.min.js?features=es6")
+		script#MathJax-script(async=true src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js")
+
 		block load_scripts
 		
 		title Psych Exploration
 
 	body
-		.container-fluid.bg-color.p-5.text-center
-			h1= title
+		.container-fluid.d-flex.flex-column(style="min-height:100vh")
+			.row.bg-color.p-5.text-center
+				h1= title
 
-		nav.navbar.navbar-expand.bg-dark.navbar-dark
-			.container-fluid
-				ul.navbar-nav
-					each info, page in navbar_info
-						if info.hasOwnProperty("href")
-							li.nav-item
-								if current_page == page
-									a.nav-link.active(href=info.href)= page
-								else
-									a.nav-link(href=info.href)= page
-						else
-							li.navitem.dropdown
-								if current_page == page
-									a.nav-link.dropdown-toggle.active(href="#", role="button", data-bs-toggle="dropdown")= page
-								else
-									a.nav-link.dropdown-toggle(href="#", role="button", data-bs-toggle="dropdown")= page
-								ul.dropdown-menu
-									each subinfo, subpage in info
-										li
-											a.dropdown-item(href=subinfo.href)= subpage
-
-		block content
-
-		.container.xxl.w-75.mt-3
 			.row
-				.col-3
-					if prev_page
-						a.btn.btn-outline-primary.rounded-pill.py-1.px-3(href=prev_page.link)
-							i.bi.bi-caret-left-fill
-							span= prev_page.name
-						
-				.col-6
-				.col-3
-					if next_page
-						a.btn.btn-outline-primary.rounded-pill.py-1.px-3(href=next_page.link)
-							span= next_page.name
-							i.bi.bi-caret-right-fill
+				.col.px-0
+					nav.navbar.navbar-expand-md.bg-dark.navbar-dark
+						.container-fluid.px-2
+							ul.navbar-nav
+								each info, page in navbar_info
+									if info.hasOwnProperty("href")
+										li.nav-item
+											if current_page == page
+												a.nav-link.active(href=info.href)= page
+											else
+												a.nav-link(href=info.href)= page
+									else
+										li.navitem.dropdown
+											if current_page == page
+												a.nav-link.dropdown-toggle.active(href="#", role="button", data-bs-toggle="dropdown")= page
+											else
+												a.nav-link.dropdown-toggle(href="#", role="button", data-bs-toggle="dropdown")= page
+											ul.dropdown-menu
+												each subinfo, subpage in info
+													li
+														a.dropdown-item(href=subinfo.href)= subpage
+			.row.p-0
+				.col.p-0
+					block content
 
-		.container-fluid.bg-color.p-3.mt-3
-			span Brady Bhalla, 2022
+			.row.align-items-end.flex-fill
+				.col
+					.row.mt-3
+						.col-3.text-center
+							if prev_page
+								a.btn.btn-outline-primary.rounded-pill.py-1.px-3(href=prev_page.link)
+									i.bi.bi-caret-left-fill
+									span= prev_page.name
+								
+						.col-6
+						.col-3.text-center
+							if next_page
+								a.btn.btn-outline-primary.rounded-pill.py-1.px-3(href=next_page.link)
+									span= next_page.name
+									i.bi.bi-caret-right-fill
+
+					.row.mt-3
+						.col.bg-color.p-3
+							span Brady Bhalla, 2022

@@ -16,9 +16,12 @@ block summary
 		perceptron moment.
 	p.
 		for perceptron: in this section we will talk about artificial neural networks. the brain is made up of neurons which form networks and allow complex thought. we can simiulate this on a computer. once neural netwroks are created, they can be trained by adjusting parameters to match target data. this use of neural networks falls under supervised learning and is most common, but they can also be used for other types of learning.  the perceptron is essentially the neuron of an artificial neural network and is the building block.  describe the math of a perceptron. simulation.
+	p A computer model of a single neuron, called a perceptron, functions similarly.  Each input, \(x_i\), to the perceptron has a certain weight, \(w_i\), which is the amount of impact the input will have on the perceptron.  Positive weights increase the output of the perceptron while negative weights decrease its output.  Each perceptron also has a bias, \(b\), which is its predisposition to firing without any inputs.  A positive bias increases the perceptron output while a negative bias decreases it.  As an expression, the output of the perceptron is \[\sigma(b + \sum_i{w_i x_i})\] This means that to find the output of a perceptron, multiply each input by its weight and total the results.  Then, add the bias and pass this value as the input to another function, \(\sigma\).  \(\sigma\) is called the activation function and is used to incorporate nonlinearity into the perceptron.  Later, when many perceptrons are combined into a network, this nonlinearity will be what allows robust models to be created.  Different activation function can be used, but the one in the simulation is called the sigmoid function, which is defined as \[\sigma(x) = \frac{1}{1 + e^{-x}}\]
+
 
 block instructions
-	.col.fw-bold Based?
-	.col-1
-		button.btn.btn-warning.p-1(onclick="restart_sketch()")
-			i.bi.bi-arrow-repeat.h4
+	.col.fw-bold Move the mouse around the simulation to randomly generate new input values for the perceptron. Clicking the refresh button will randomize the weights and bias for the perceptron.
+	.col-3.d-flex.justify-content-center
+		.btn-toolbar
+			button.btn.btn-warning.m-2.p-1(onclick="restart_sketch()")
+				i.bi.bi-arrow-repeat.h4

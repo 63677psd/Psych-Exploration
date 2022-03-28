@@ -16,10 +16,10 @@ block summary
 		living things evolve behaviors and traits that make them live longer and reproduce more often. This simple idea allows for incredibly complex structures. Humans and our amazing intelligence evolved from single-celled organisms over millions of years.  We can simulate evolution and natural selection through a genetic algorithm.  This uses the same ideas to evolve complex behavior in computers.  We encode the behavior in "dna." depending on how the individual performs a certain task, they are more likely to be selected by the program to pass this dna onto the next generation. Over many generations, the population performs better and better overall.
 
 block instructions
-	.col.fw-bold what to do
-	.col-3
-		button.btn.btn-primary#start(onclick="start()") Start
-		.btn-toolbar#toolbar(style="display:none")
-			button.btn.btn-primary.mx-5(onclick="evolve_100()") Evolve x100
-			button.btn.btn-warning.p-1(onclick="restart_sketch()")
+	.col.fw-bold Click “Start” to begin running the genetic algorithm.  Afterwards, either wait or press “Evolve x100” to fast forward one hundred generations (this&nbsp;may take a while).  The refresh button will restart the genetic algorithm.
+	.col-3.d-flex.justify-content-center
+		.btn-toolbar
+			button.btn.btn-primary.m-2#start(onclick="start()") Start
+			button.btn.btn-primary.m-2.tools(onclick="evolve_100()" style="display:none") Evolve&nbsp;x100
+			button.btn.btn-warning.m-2.p-1.tools(onclick="restart_sketch()" style="display:none")
 				i.bi.bi-arrow-repeat.h4

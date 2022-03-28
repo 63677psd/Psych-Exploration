@@ -15,9 +15,11 @@ block nav_info
 block summary
 	p. 
 		we do a lot of things with our eyes, quickly classify objects usually without even thinking about it. We can start to try to model this with a computer using a regular feedforward network as desccribed in the last section. A network like this would be set up with each of the pixels as inputs, and an output of probabilities of being a certain object.  However, it turns out that networks like this don't do a great job of classifying images.  feature detection. Feature detection can be simulated by adding something called convolutional layers.  These work as follows: put some images and things. So, to make a neural network that is good at classifying images, we add convolutional layers that are trained to break the image down into more abstract components and then have layers that classify the image BASED off of that.  There's a file in assets called "Screen Shot 2022-03-21 at 6.07.17 PM.png" which has information about training and testing loss and accuracy.  Delete this screenshot once you are done with it.
+	p The simulation shows a convolutional neural network classifying handwritten numerical digits.  I trained this CNN myself using the MNIST dataset and was able to get an accuracy of \(98\%\) on the testing data.  This accuracy goes down when drawing digits myself, but the CNN is still very accurate as long as the digits are drawn centered and clearly.
 
 block instructions
-	.col.fw-bold instructions
-	.col-2
-		button.btn.btn-primary#load(onclick="load()") Load
-		button.btn.btn-warning#clear(onclick="clear_number()" style="display:none") Clear
+	.col.fw-bold Click “Load” to load my pre-trained model.  Click and drag the mouse to draw a number. Afterwards, click “Clear” to clear the drawing and make a new one.  For best results, make sure the drawn numbers are centered.
+	.col-3.d-flex.justify-content-center
+		.btn-toolbar
+			button.btn.btn-primary.m-2#load(onclick="load()") Load
+			button.btn.btn-warning.m-2#clear(onclick="clear_number()" style="display:none") Clear

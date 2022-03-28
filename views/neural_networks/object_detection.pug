@@ -17,10 +17,11 @@ block summary
 	p.
 		TF test. this shows an example of a cool thing that can be done by neural networks. You could describe how (or at least what) is a SSD model (single-shot detector). Talk about how more data is good for more advanced neural networks, also how better computers is good. The models are also getting better. There are free pre-trained models that can do things such as object detection (see simulation), language processing (put link to this simulation if you end up doing it), etc.
 	a(href="https://github.com/tensorflow/tfjs-models") https://github.com/tensorflow/tfjs-models
+	p The simulation shows a pre-trained model taken from <a href="https://www.tensorflow.org/js/models" class="link-secondary">here</a> which runs a Single Shot MultiBox Detection algorithm.  This means that an image can be passed into the neural network and multiple predictions can be made in one evaluation of the image.  Models that are single shot are especially practical because they can be used to make predictions in real time, with applications in areas such as self-driving cars.
 
 block instructions
-	.col.fw-bold Instructions
-	.col-2
+	.col.fw-bold Click “Load” to load TensorFlow’s pre-trained model (this may take a while).  Afterwards, use the dropdown menu to perform object detection on different images.  Selecting the webcam option will perform real-time object detection using the computer’s webcam.
+	.col-3.d-flex.justify-content-center
 		.btn-toolbar
 			button.btn.btn-primary#load-model(onclick="load_model()") Load
 			select.form-select#input-select(style="width:auto;display:none")

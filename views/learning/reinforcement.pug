@@ -12,13 +12,12 @@ block nav_info
 	- const next_page = {name: "Perceptron", link: "/perceptron"};
 
 block summary
-	p.
-		when humans learn to do a task, we often use trial and error. computers can do this too, using a method known as reinforcement learning. talk about multi-armed bandit (explore vs. exploit). explore environment and develop expected values along the way. eventually this will be able to construct an entire path to mark the best moves.
+	p 1
 
 block instructions
-	.col.fw-bold what to do
-	.col-1
-		button.btn.btn-primary#train-test(onclick="switch_mode()") Train
-	.col-1
-		button.btn.btn-warning.p-1(onclick="restart_sketch()")
-			i.bi.bi-arrow-repeat.h4
+	.col.fw-bold Click the blue button to begin the learning process. Click it again to pause learning and show the optimal solution found so far.  The refresh button starts the simulation over.
+	.col-3.d-flex.justify-content-center
+		.btn-toolbar
+			button.btn.btn-primary.m-2#train-test(onclick="switch_mode()") Train
+			button.btn.btn-warning.m-2.p-1(onclick="restart_sketch()")
+				i.bi.bi-arrow-repeat.h4

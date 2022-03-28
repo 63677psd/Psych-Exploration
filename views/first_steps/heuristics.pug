@@ -12,13 +12,27 @@ block nav_info
 	- const next_page = {name: "Learning", link: "/supervised-unsupervised"};
 
 block summary
-	p.
-		Heuristics moment. In the scenario in the simulation, the heuristic is the same about 79% of the time.  It is an average of about 0.38 points below the algorithm.  Talk about how while humans have algorithms, we often also use quicker but less accurate heuristics to solve problems. heuristics can also be programmed into a computer, giving a quicker way to solve a problem. stress that it is still hardcoded into the computer. Talk about time complexity here? Describe simulation. "greedy algorithm"
+
+	p Sometimes an exact algorithmic solution to a problem is not required, as long as a close approximation can be found.  This close approximation, which is often faster to calculate, is called a heuristic.  Our brains use heuristics constantly when solving problems, but computers can use them too.
+
+	p The simulation below will show a faster method for solving the 0-1 knapsack problem.  It finds the optimal solution most of the time, but not always.  However, when the heuristic doesn’t find the optimal solution, it is usually close enough that it doesn’t matter.  The procedure for the heuristic solution is as follows:
+
+	ol
+		li For each item, calculate \(\frac{\text{value}}{\text{weight}}\).
+		li Sort the items in descending order according to the values calculated in step 1.
+		li Add items to the knapsack in order. If an item doesn’t fit, skip it and move onto the next one.
+		li Once either the knapsack is full or there are no more items, the procedure is complete.
+
+	o This heuristic runs faster than the algorithm, and we can prove this using something called big-\(\mathcal{O}\) notation.  This notation describes how long the algorithm takes as the size of inputs grow.  For example, \(\mathcal{O}(n)\) means as the size of input increases, the amount of time to run the algorithm grows linearly.  \(\mathcal{O}(n^2)\), however, means that the time to run the algorithm grows quadratically as the size of input increases.
+
+	p To compare the algorithm and heuristic for the 0-1 knapsack problem, let \(n\) be the number of items and \(w\) be the total weight the knapsack can hold.  The algorithm on the previous page uses a method called dynamic programming to find the solution.  This runs in \(\mathcal{O}(nw)\) time because it involves creating a table of all possible numbers of items and weights and populating the table.
+
+	p The heuristic on the other hand, involves only sorting and iterating through the list of items, which takes \(\mathcal{O}(n\log{n})\) time.  This is faster than the algorithm if the maximum weight is larger than the number of items (which is usually the case).  In addition, the heuristic still works for non integer weights of items, which the algorithm cannot do efficiently.
 
 block instructions
-	.col.fw-bold This shows the solutions to the 0-1 knapsack problem found by the algorithm and the heuristic.  Click "Generate" to generate an example where the algorithm and heuristic give different results.
-	.col-1
-		button.btn.btn-primary(onclick="generate_diff()") Generate
-	.col-1
-		button.btn.btn-warning.p-1(onclick="restart_sketch()")
-			i.bi.bi-arrow-repeat.h4
+	.col.fw-bold This simulation shows the solutions to the 0-1 knapsack problem found by both the algorithm and the heuristic. Click "Generate" to generate an example where the algorithm and heuristic produce different results.
+	.col-3.d-flex.justify-content-center
+		.btn-toolbar
+			button.btn.btn-primary.m-2(onclick="generate_diff();failed=0") Generate
+			button.btn.btn-warning.m-2.p-1(onclick="restart_sketch();failed=0")
+				i.bi.bi-arrow-repeat.h4

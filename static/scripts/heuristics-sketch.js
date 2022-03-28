@@ -2,6 +2,9 @@ let items;
 let max_weight;
 let algo_total_value;
 let heuristic_total_value;
+let last_action;
+let failed;
+let prev_size;
 
 function solve(){
 	heuristic_total_value = heuristic_knapsack(items, max_weight);
@@ -34,6 +37,14 @@ function generate_coords(){
 		if (x + i.weight > width*0.9){
 			x = 50;
 			y += 70;
+			if (y >= 150 + 3*70 && failed<20){
+				if (last_action == "restart_sketch"){
+					restart_sketch();
+				} else {
+					generate_diff();
+				}
+				return false;
+			}
 		}
 
 		i.options_x = x;
@@ -41,6 +52,8 @@ function generate_coords(){
 
 		x += i.weight + 20;
 	}
+
+	return true;
 }
 
 function restart_sketch(){
@@ -56,6 +69,8 @@ function restart_sketch(){
 	items.sort((x,y)=>(y.value/y.weight - x.value/x.weight));
 
 	solve();
+
+	last_action = "restart_sketch";
 }
 
 function generate_diff(){
@@ -63,6 +78,7 @@ function generate_diff(){
 	while (algo_total_value == heuristic_total_value){
 		restart_sketch();
 	}
+	last_action = "generate_diff";
 }
 
 function draw_block(x, y, weight, value){
@@ -82,12 +98,18 @@ function setup(){
 	const canvas = createCanvas(windowWidth*0.75,500);
 	canvas.parent("sketch");
 
+	prev_size = windowWidth*0.75;
+	failed = 0;
+
 	generate_diff();
 }
 
 function draw(){
 	// determine coordinates of each box
-	generate_coords();
+	while (!generate_coords()){
+		failed++;
+		console.log(failed);
+	}
 
 	background(200);
 
@@ -148,4 +170,15 @@ function mouseIn(){
 
 function windowResized(){
 	resizeCanvas(windowWidth*0.75, 500);
+	if (abs(prev_size - windowWidth*0.75) > 50){
+		max_weight = width*0.6;
+		max_weight -= max_weight%50;
+		prev_size = windowWidth*0.75;
+		if (last_action == "restart_sketch"){
+			restart_sketch();
+		} else {
+			generate_diff();
+		}
+	}
+	failed = 0;
 }

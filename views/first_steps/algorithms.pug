@@ -16,9 +16,9 @@ block summary
 		ALGORITHMS. Talk about how algorithms are a super important part of cs, the first way people figured out to make computers smart is to do smart things first. computers are really good at doing things step by step really quickly. by coming up with algorithms, computer scientists can hardcode problem solving into computers.  talk about connections to algorithms in our brain and how we solve problems using algorithms too. Describe simulation.
 
 block instructions
-	.col.fw-bold Click the boxes to try the 0-1 knapsack problem yourself. Press "Solve" to run the algorithm and find a solution that maximizes the total value.
-	.col-1
-		button.btn.btn-primary(onclick="solve()") Solve
-	.col-1
-		button.btn.btn-warning.p-1(onclick="restart_sketch()")
-			i.bi.bi-arrow-repeat.h4
+	.col.fw-bold Click the boxes to try the 0-1 knapsack problem yourself. Press "Solve" to run the algorithm and find a solution that maximizes the total value. Pressing the refresh button will generate new boxes.
+	.col-3.d-flex.justify-content-center
+		.btn-toolbar
+			button.btn.btn-primary.m-2(onclick="solve()") Solve
+			button.btn.btn-warning.m-2.p-1(onclick="restart_sketch()")
+				i.bi.bi-arrow-repeat.h4

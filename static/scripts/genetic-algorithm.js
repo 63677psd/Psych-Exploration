@@ -125,6 +125,8 @@ Population.prototype.update_individual = function(individual) {
 	}
 	if (individual.angle >= 2*PI){
 		individual.angle -= 2*PI;
+	} else if (individual.angle <= -2*PI){
+		individual.angle += 2*PI;
 	}
 	individual.pos.x += individual.vel.x;
 	individual.pos.y += individual.vel.y;

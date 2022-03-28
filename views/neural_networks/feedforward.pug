@@ -17,8 +17,9 @@ block summary
 		stringing perceptrons together in one direction, this is the simplest kind of artificial neural network but is still very robust. the activation functions inforporate nonlinearity, which allows these networks to find complex patterns within data. explain how each layer feeds into the next, explain backpropogation and hidden nodes, describe simulation. should another simulation go after this? cnn maybe, you could do mnist pretty quickly with tensorflow? another cnn simulation could also be good for talking about image processing and feature detection? also in this page make sure to talk about strengthening neural connections during backpropogation, which less important ones are scaled down
 
 block instructions
-	.col.fw-bold double based?
-	.col-1
-		button.btn.btn-primary#start(onclick="start()") Start (Load?)
-		button.btn.btn-warning.p-1#restart(onclick="restart_sketch()" style="display:none")
-			i.bi.bi-arrow-repeat.h4
+	.col.fw-bold Click “Initialize” to generate a new neural network and begin training.  After the training has began, the refresh button can be pressed to start over.
+	.col-3.d-flex.justify-content-center
+		.btn-toolbar
+			button.btn.btn-primary.m-2#start(onclick="start()") Initialize
+			button.btn.btn-warning.m-2.p-1#restart(onclick="restart_sketch()" style="display:none")
+				i.bi.bi-arrow-repeat.h4

@@ -2,11 +2,12 @@ let maze;
 let population;
 let should_evolve_100;
 let started = false;
+let w;
 
 function start(){
 	started = true;
 	$("#start").remove();
-	$("#toolbar").css("display", "block");
+	$(".tools").css("display", "block");
 }
 
 function restart_sketch(){
@@ -31,9 +32,9 @@ function setup(){
 	frameRate(30);
 
 	textAlign(LEFT, TOP);
-	textSize(20);
-	const w = textWidth("Generation: 99999");
-	textSize(floor(20/w*(width-height-50)/2));
+	
+	textSize(30);
+	w = textWidth("Generation: 99999");
 
 	restart_sketch();
 }
@@ -45,7 +46,7 @@ function draw(){
 	noStroke();
 	text(`Generation: ${population.generation}`, 25, 50);
 
-	translate((width-height)/2,0.1*height/2);
+	translate(max((width-height)/2, w + 25),0.1*height/2);
 	for (const individual of population.population){
 		if (started){
 			population.update_individual(individual);
