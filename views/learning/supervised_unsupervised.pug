@@ -12,8 +12,21 @@ block nav_info
 	- const next_page = {name: "Reinforcement Learning", link: "/reinforcement"};
 
 block summary
-	p.
-		human learn from experience. machines can simulate this. one way this can be done is by finding patterns in data to come to a conclusion.  sometimes the data has known "labels" and sometimes it doesnt. This is the difference between supervised and unsupervised. Classification vs. regression. Describe simulation, unsupervised algorithm called k-means clustering that is used to detect clusters in a set of data.  Give and example, with a picture maybe? maybe link to neural network section for more advanced learning algorithms. k-means clustering also works in higher dimensions but the easiest way to visualize it is in two dimensions.
+	p When humans solve problems, we don’t just follow algorithms, we learn.  The first time we attempt a certain type of problem, there is a good chance we will fail miserably.  However, after each new attempt, we get better and better until finally we become very effective at solving that problem.  This too, can be simulated with computers and is a major step towards more intelligent behavior.  The computer still runs an algorithm, but instead of the algorithm describing a solution to a problem, the algorithm describes a method for learning the solution to a problem.  There are three main types of machine learning: supervised, unsupervised, and reinforcement learning.  This page will talk about supervised and unsupervised learning and the next page will cover reinforcement learning.
+	p To start, supervised learning is when a computer makes sense of "labeled" data.  This means that each piece of data the computer is given has a label explaining what it corresponds to.  For example, say a computer is using a supervised learning model to predict house prices and has a list of previous houses that have been sold.  The input data could be number of bedrooms, number of bathrooms, square footage, and location.  The label in this case would be the price the house sold for.  The computer would then be able to use the previous data to predict the label, or the expected selling price, of any house that hasn’t been sold yet.
+	p Unsupervised learning is when a computer has data with no labels.  The goal of unsupervised learning is usually to find "clusters" in data.  For an example of unsupervised learning, suppose a computer is trying to figure out the differences of two similar species of an animal.  It has data that describes the length, weight, and resting heartbeat of many subjects but doesn’t know which subject corresponds to which species.  However, when the data is graphed, it is possible that two clusters of points will emerge.  The computer can detect those clusters and even figure out which cluster new subjects belong to, even though it has no idea which cluster corresponds to which species.
+	p The neural network section of this website uses supervised learning extensively, so the simulation on this page will be an example of unsupervised learning.  The algorithm shown is called \(k\)-means clustering, which is used to detect clusters in a set of quantitative data.  To perform \(k\)-means clustering, the number of clusters, \(k\), must be chosen beforehand.  After this, the computer performs the following steps:
+
+	ol
+		li Randomly choose \(k\) points to be the center of each cluster.
+		li Assign each datapoint to the cluster corresponding to the closest center.
+		li For each cluster, calculate the mean position by averaging all points it contains.
+		li Move the center of the cluster to this newly calculated mean.
+		li Repeat steps \(2\)-\(4\) until the centers stabilize or until a certain number of iterations is reached.
+
+	p In step \(1\), the computer is taking a completely random guess at where each of the clusters are.  However, with each new iteration, the guesses for the clusters get better and better, so the computer is learning!
+	p The \(k\)-means clustering algorithm is very simple compared to some unsupervised learning algorithms, and the computer does not always learn the best possible clusters. However, it usually performs pretty well and continues to work even in higher dimensions.
+
 
 block instructions
 	.col.fw-bold Click “Find Clusters” to run \(k\)-means clustering on the points shown in the simulation.  Points are colored according to their calculated clusters with a square in the center showing the center (or mean) of each cluster. The dropdown menu can be used to generate a different set of data.

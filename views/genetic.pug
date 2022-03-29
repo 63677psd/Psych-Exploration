@@ -12,8 +12,20 @@ block nav_info
 	- const next_page = {name: "Language", link: "/language"};
 
 block summary
-	p.
-		living things evolve behaviors and traits that make them live longer and reproduce more often. This simple idea allows for incredibly complex structures. Humans and our amazing intelligence evolved from single-celled organisms over millions of years.  We can simulate evolution and natural selection through a genetic algorithm.  This uses the same ideas to evolve complex behavior in computers.  We encode the behavior in "dna." depending on how the individual performs a certain task, they are more likely to be selected by the program to pass this dna onto the next generation. Over many generations, the population performs better and better overall.
+	p Evolutionary psychologists explain functions of the brain such as intelligence using Darwin’s theory of evolution.  This theory says that living things are products of many generations of natural selection, in which beneficial traits are selected from a population.  The main idea is that any trait which is helpful for the survival of a species will allow certain individuals to live longer and reproduce more.  This will cause that trait to be passed down to a larger portion of the next generation than other traits, which over time will spread across the entire population.
+	p This method of picking beneficial traits using natural selection can also be used to simulate intelligent behavior in computers using a genetic algorithm.  To perform this, there needs to be a way of encoding behavior, which can be seen as the DNA of an individual.  In the simulation, this is a list of actions.  Another option for encoding behavior is to use a neural network, which is able to model very complex behavior.
+	p There also needs to be a way of measuring how good an individual is, called its fitness.  The higher fitness an individual has, the more likely it is to pass its DNA to the next generation. A method for calculating fitness must be carefully chosen in order for the genetic algorithm to develop the desired behavior.  If the fitness is not chosen carefully, the genetic algorithm may find ways to cheat the system and won’t develop the expected behavior.
+	p Once the DNA and fitness measure have been implemented, the genetic algorithm follows the following process:
+
+	ol
+		li Create a population with random DNA.
+		li Use the DNA to calculate the fitness of each individual.
+		li Create the next generation of the population by combining individuals’ DNA from the previous generation. The likelihood of being chosen to pass on DNA should correspond to the relative levels of fitness across the population.
+		li Randomly mutate a small portion of the new population. This creates genetic variation that can lead to new behaviors not shown in the initial population.
+		li Repeat steps \(2\)-\(4\).
+
+	p This method is used in the simulation to train rectangles to drive from the top left corner of the grid to the bottom right corner while avoiding walls.  The DNA of each individual is a list of actions it can take.  The fitness is a function incorporating how far down and right the individual can drive without crashing.  At first, none of the individuals are any good at avoiding walls, but as the genetic algorithm is run, the population gets better and better until it excels at the task.
+
 
 block instructions
 	.col.fw-bold Click “Start” to begin running the genetic algorithm.  Afterwards, either wait or press “Evolve x100” to fast forward one hundred generations (this&nbsp;may take a while).  The refresh button will restart the genetic algorithm.
