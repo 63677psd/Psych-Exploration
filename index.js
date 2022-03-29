@@ -5,7 +5,7 @@ const app = express();
 app.set("view engine", "pug");
 app.locals.basedir = require("path").join(__dirname, 'views');
 
-const PORT = 8373;
+const PORT = 80;
 
 // serve scripts folder
 app.use("/static", express.static(__dirname + "/static"));
