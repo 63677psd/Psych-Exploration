@@ -94,15 +94,16 @@ function draw(){
 		if (mouseIn()){
 			const row = floor((mouseY-50)/width*28);
 			const col = floor(mouseX/width*28);
-			canvas_data[row][col] = min(255, canvas_data[row][col] + 100);
-			for (let dr=-1; dr<=1; dr++){
-				for (let dc=-1; dc<=1; dc++){
-					if (_in_grid(row + dr, col + dc) && !(dr==0 && dc==0)){
-						canvas_data[row + dr][col + dc] = min(255, canvas_data[row + dr][col + dc] + 10);
+			if (row >= 0){
+				canvas_data[row][col] = min(255, canvas_data[row][col] + 100);
+				for (let dr=-1; dr<=1; dr++){
+					for (let dc=-1; dc<=1; dc++){
+						if (_in_grid(row + dr, col + dc) && !(dr==0 && dc==0)){
+							canvas_data[row + dr][col + dc] = min(255, canvas_data[row + dr][col + dc] + 10);
+						}
 					}
 				}
 			}
-
 		}
 	}
 
