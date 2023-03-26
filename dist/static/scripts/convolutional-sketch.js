@@ -40,7 +40,7 @@ async function load(){
 	$("#load").text("Loading...");
 	$("#load").prop("disabled", true);
 
-	model = await tf.loadLayersModel("assets/mnist-model.json");
+	model = await tf.loadLayersModel("static/assets/mnist-model.json");
 
 	model_loaded = true;
 	$("#load").remove();
