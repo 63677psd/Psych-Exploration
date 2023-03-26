@@ -8,11 +8,11 @@ let showing_webcam = false;
 let webcam_loaded = false;
 
 const image_links = {
-	Brady: "../static/assets/brady.jpg",
-	City: "../static/assets/city.jpg",
-	Family: "../static/assets/family.jpg",
-	Office: "../static/assets/office.jpg",
-	People: "../static/assets/people.png"
+	Brady: "assets/static/assets/brady.jpg",
+	City: "assets/static/assets/city.jpg",
+	Family: "assets/static/assets/family.jpg",
+	Office: "assets/static/assets/office.jpg",
+	People: "assets/static/assets/people.png"
 };
 let images = {};
 let showing_image = "Brady";

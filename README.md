@@ -1,7 +1,9 @@
 # psych-exploration
 
-This is the website I made for an AP Psychology project.
+This is the website I made for an AP Psychology project in high school (2022).
 
-To view a running version: https://tinyurl.com/brady-simulating-intelligence
+My goal for this project was to create visual examples of computers exhibiting intelligent behavior and present it to a non-technical audience at an understandable level.
 
-I'm not sure how long I will keep this running, but it will be at least through the end of April 2022.
+See the website [here](https://bradybhalla.github.io/psych-exploration).
+
+**Update 3/26/2023** - GitHub Pages site created
