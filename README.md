@@ -4,4 +4,6 @@ This is the website I made for an AP Psychology project in high school (2022). M
 
 To run the website locally, run `index.js` after setting up the node package. The website has also been compiled into a static site which is in the `dist` folder and can be viewed [here](https://bradybhalla.github.io/psych-exploration).
 
+Topics such as algorithms, types of machine learning, neural networks, and genetic algorithms are explained alongside interactive simulations.
+
 **Update 7/06/2024** - Update readme
